@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL-Server</title>
+</head>
+<body>
+    <form action="/text_sql" method="get">
+        <input type="text" name="text">
+        <label for="text">sql</label>
+        <input type="checkbox" name="fetch_one">
+        <label for="fetch_one">fetch one</label>
+        <input type="submit" value="Send">
+    </form>
+    <form action="/file_sql" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <label for="file">sql file</label>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
