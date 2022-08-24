@@ -39,7 +39,7 @@ class App:
 
         @self.app.route("/homepage", methods=["GET"])
         def homepage():
-            return render_template("homepage.html")
+            return render_template("homepage.html", **request.args)
 
         @self.app.route("/text_sql", methods=["GET"])
         def text():

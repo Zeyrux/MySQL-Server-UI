@@ -3,9 +3,11 @@ from mysql import connector
 
 def execute(conn: "Connection",
             sql: str, fetch_one=False) -> list[tuple] | None:
+    print("Executing:", sql)
     conn.cursor.execute(sql, multi=True)
     response = conn.cursor.fetchone() if fetch_one else conn.cursor.fetchall()
     conn.cursor.reset()
+    print("return resonse:", response)
     return response
 
 
@@ -14,7 +16,7 @@ class Connection:
         config = {
             "user": "root",
             "password": "root",
-            "host": "localhost",
+            "host": "database",
             "port": "3306"
         }
         if database is not None:

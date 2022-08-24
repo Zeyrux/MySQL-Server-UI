@@ -3,23 +3,23 @@ services:
 
   flask:
     build: ./flask
-    container_name: flask
+    container_name: mysql_server_ui_flask
     restart: always
-    links:
-      - database
     expose:
       - 6002
+    networks:
+      - apps
 
   nginx:
     build: ./nginx
-    container_name: nginx
+    container_name: mysql_server_ui_nginx
     restart: always
     ports:
       - "5002:5002"
+    networks:
+      - apps
 
-  database:
-    image: mysql
-    ports:
-      - "32000:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+networks:
+  apps:
+    external:
+      name: apps
